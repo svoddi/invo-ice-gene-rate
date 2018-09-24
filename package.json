@@ -1,0 +1,20 @@
+{
+  "name": "csv-html-pdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "asyncawait": "^1.0.7",
+    "bluebird": "^3.5.1",
+    "csvtojson": "^2.0.8",
+    "handlebars": "^4.0.11",
+    "html-pdf": "^2.2.0",
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

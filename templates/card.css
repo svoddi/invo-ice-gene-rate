@@ -1,0 +1,44 @@
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.head, .body {
+  padding: 20px;
+}
+.head p {
+  margin: 0;
+  color: #888;
+}
+
+table {
+}
+
+table td {
+  vertical-align: top;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+table td.col {
+  width: 50px;
+}
+
+table td.desc {
+  width: 200px;
+}
+
+table td.rate {
+  text-align: right;
+  width: 50px;  
+}
+
+table.billing-info td {
+  border: none;
+}
+
+.footer {
+  text-align: center;
+  color: #888;
+}
+

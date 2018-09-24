@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <style>
+    * {
+     font-family: 'Raleway', sans-serif !important;
+     font-size: 10px;
+    }
+
+    strong {
+      font-weight: 900;
+      text-transform: uppercase;
+      color: royalblue;
+    }
+
+    .wrapper {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    .head, .body {
+      padding: 20px;
+    }
+
+    .head p {
+      margin: 0 10px;
+      color: #888;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 15px 0;      
+    }
+
+    table td {
+      border: 1px solid #ddd;
+      font-size: 9px;
+    }
+
+    table:first-of-type td {
+      border-bottom: 0;
+    }    
+
+    table td {
+      vertical-align: top;
+      padding: 10px;
+    }
+
+    table td.col {
+      width: 50px;
+    }
+
+    table td.desc {
+      width: 200px;
+      text-transform: capitalize;
+    }
+
+    table td.rate {
+      text-align: right;
+    }
+
+    table td.rate.total {
+      width: 85px;
+    }
+
+    table.billing-info td {
+      border: none;
+    }    
+
+    span.right {
+      float: right;
+    }
+
+    .footer {
+      text-align: center;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="head">
+      <p>SVODDI CONSULTING INC.</p>
+      <p>1760 Rue Decarie, #24, Saint-Laurent</p>
+      <p>Quebec, H4L 3N3</p>
+    </div>
+    
+    <div class="body">
+      <table width="100%" cellspacing="0" class="billing-info">
+        <tr>
+          <td>
+            <strong>From</strong><br />
+            SVODDI CONSULTING INC.<br />
+            1760 Rue Decarie, #24 <br/>
+            Saint-Laurent, <br />
+            Quebec, H4L 3N3<br />
+            voddisatish@gmail.com<br />
+            +1 514 961 2254        
+          </td>
+          <td>
+            <strong>To</strong><br />
+            {{ Address1 }}<br/>
+            {{ Address2 }}<br/>
+            {{ Address3 }}<br/>
+            {{ Address4 }}
+          </td>
+          <td>
+            <strong>Invoice No</strong>: <span class="right">STO-{{ Job }}</span><br />
+            <strong>Submitted Date</strong>: <span class="right">{{ Submitted }}</span><br />
+            <strong>Due Date</strong>: <span class="right">{{ Closed }}</span>
+          </td>
+        </tr>
+      </table>
+        
+      <table width="100%" cellspacing="0" class="pricing-info">
+        <tr>
+          <td class="col"><strong>ID</strong></td> 
+          <td class="desc"><strong>Description</strong></td> 
+          <td class="col rate" width="50"><strong>Hours</strong></td>
+          <td class="col rate" width="50"><strong>Rate</strong></td>
+          <td class="col rate"><strong>Total (USD)</strong></td>
+        </tr>
+        <tr>
+          <td class="col">{{ Job }}</td> 
+          <td class="desc">{{ Title }}</td> 
+          <td class="col rate">{{ Hours }}</td>
+          <td class="col rate">$65.00</td>
+          <td class="col rate total">{{ TotalAmount }}</td>
+        </tr>
+        <tr>
+          <td colspan="3">&nbsp;</td>
+          <td class="col rate"><strong>Total</strong></td>
+          <td class="col rate total">{{ TotalAmount }}</td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class="footer">
+      <p>For any questions or concerns regarding this invoice, please contact voddisatish@gmail.com</p>
+      <p>Thank you for your business!</p>
+    </div>
+  </div>
+</body>
