@@ -6,8 +6,14 @@ var fs = require('fs');
 var csvtojson = require("csvtojson").Converter;
 var handlebars = require('handlebars');
 var pdf = require('html-pdf');
+const commandLineArgs = require('command-line-args')
 
 /* all requires above this line */
+
+const argOptions = [
+	{name: 'jobs', type: String}
+];
+const args = commandLineArgs(argOptions);
 
 var html = fs.readFileSync('./templates/card.html', 'utf8');
 var csvpath = './csvdata/Jobs_Done_TEST.csv';
@@ -15,6 +21,13 @@ var converter = Promise.promisifyAll(new csvtojson({delimiter: [',', ';']}));
 var pdfOptions = { /*format: 'A4'*/ };
 
 function generatePDF(csv) {
+	// Filter by job numbers provided in command line args
+	if (!_.isUndefined(args.jobs)) {
+		csv = _.filter(csv, function(row) {
+			return row.Job.indexOf(args.jobs) > -1;
+		});
+	}
+
 	_.each(csv, function(row) {
 		// Do some processing
 		row['Job'] = row['Job'].replace('#', '');
